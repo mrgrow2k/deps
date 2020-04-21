@@ -44,14 +44,14 @@ If you want to manually build the wallet, you can follow the commands below. Thi
 9.  sudo make MXE_TARGETS="i686-w64-mingw32.static" boost 
 10. cd /mnt/mxe/src 
 11. sudo rm openssl.mk 
-12. sudo wget https://media.spectresecurity.io/scripts/mxe/openssl.mk 
+12. sudo wget https://raw.githubusercontent.com/mrgrow2k/deps/master/openssl.mk 
 13. cd .. 
 14. sudo make qt5 miniupnpc db boost -j4 MXE_PLUGIN_DIRS=$PWD/plugins/examples/qt5-freeze 
 15. sudo make build-only-openssl_i686-w64-mingw32.static 
 16. cd /home/spectre/Desktop 
 17. git clone https://github.com/mrgrow2k/coinrepo.git 
 18. cd /home/spectre/Desktop/ 
-19. wget https://github.com/SpectreSecurityCoin/Scripts/raw/master/openssl-1.0.2b.tar.gz  
+19. wget https://github.com/mrgrow2k/deps/releases/download/1.0.2d/openssl-1.0.2b.tar.gz  
 20. tar -xzvf openssl-1.0.2b.tar.gz 
 21. cp -R openssl-1.0.2b openssl-win32-build 
 22. cd openssl-win32-build 
@@ -61,10 +61,13 @@ If you want to manually build the wallet, you can follow the commands below. Thi
 26. export PATH=$MXEPATH/bin:$PATH 
 27. CROSS_COMPILE="i686-w64-mingw32.static-" ./Configure mingw no-asm no-shared -prefix=/mnt/mxe/usr/i686-w64-mingw32.static 
 28. make -j4 29. cd /home/spectre/Desktop/ 
-30. wget https://github.com/SpectreSecurityCoin/Scripts/raw/master/db-4.8.30.tar.gz 
-31. tar -xzvf db-4.8.30.tar.gz 32. cd /home/spectre/Desktop/db-4.8.30 33. make clean 
-34. wget https://raw.githubusercontent.com/SpectreSecurityCoin/Scripts/master/berekeydb-4.8.30.sh 
-35. dos2unix berekeydb-4.8.30.sh 36. chown -Rv 755 * 
+30. wget https://github.com/mrgrow2k/deps/releases/download/4.8.30/db-4.8.30.NC.tar.gz 
+31. tar -xzvf db-4.8.30.NC.tar.gz 
+32. cd /home/spectre/Desktop/db-4.8.30.NC
+33. make clean 
+34. wget https://raw.githubusercontent.com/mrgrow2k/deps/master/berekeydb-4.8.30.sh 
+35. dos2unix berekeydb-4.8.30.sh 
+36. chown -Rv 755 * 
 37. export PATH=/mnt/mxe/usr/bin:$PATH 
 38. export PATH=$MXEPATH/bin:$PATH 
 39. sudo ./berekeydb-4.8.30.sh 
@@ -110,7 +113,7 @@ You can build the wallet from the following menu by selecting these following op
 8. sudo make MXE_TARGETS="i686-w64-mingw32.static" qttools 
 9. sudo make MXE_TARGETS="i686-w64-mingw32.static" boost 10. cd /mnt/mxe/src 
 11. sudo rm openssl.mk 
-12. sudo wget https://raw.githubusercontent.com/SpectreSecurityCoin/Scripts/master/openssl.mk 
+12. sudo wget https://raw.githubusercontent.com/mrgrow2k/deps/master/openssl.mk 
 13. cd .. 
 14. sudo make qt5 miniupnpc db boost -j4 MXE_PLUGIN_DIRS=$PWD/plugins/examples/qt5-freeze 
 15. sudo make build-only-openssl_i686-w64-mingw32.static 
